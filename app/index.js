@@ -11,5 +11,13 @@ gridItem.classList.add('grid__item');
 gridItem.innerText = 'YAY I MADE A NEW ELEMENT!';
 console.log(gridItem);
 
+debugger;
+
+const company = document.createElement('h2');
+company.classList.add('profile__company');
+company.innerText = 'Yahoo';
+
+gridItem.appendChild(company);
+
 // Add the gridItem to the end of the "grid" element
 grid.appendChild(gridItem);
