@@ -8,16 +8,17 @@ const gridItem = document.createElement('div');
 // NOTE: We are adding a class name not specifying a class query selector
 // So no `.` here
 gridItem.classList.add('grid__item');
-gridItem.innerText = 'YAY I MADE A NEW ELEMENT!';
-console.log(gridItem);
+gridItem.innerHTML = `
+<div class="profile">
+  <h2 class="profile__company">Company Name</h2>
 
-debugger;
+  <h3 class="profile__location">Country, City</h3>
 
-const company = document.createElement('h2');
-company.classList.add('profile__company');
-company.innerText = 'Yahoo';
+  <p class="profile__skill">Skill</p>
+</div>`;
 
-gridItem.appendChild(company);
+gridItem.querySelector('.profile__company').innerText = 'Yahoo';
 
 // Add the gridItem to the end of the "grid" element
 grid.appendChild(gridItem);
+// document.body.querySelector('.profile__company').innerText = 'THIS IS THE FIRST ONE!!!';
