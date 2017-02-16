@@ -19,8 +19,14 @@
   flex-wrap: wrap;
 
   &__item {
-    flex-basis: calc(100% / 4);
+    flex-basis: calc(100% / 4 - 2rem);
+    flex-grow: 1;
     margin: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
 }
 
