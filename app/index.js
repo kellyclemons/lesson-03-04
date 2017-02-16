@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import companyList from './company';
 
 const grid = document.querySelector('.grid');
 
@@ -16,13 +17,14 @@ function createProfileElement(profile) {
   gridItem.classList.add('grid__item');
   gridItem.innerHTML = `
   <div class="profile">
-    <h2 class="profile__company">Company Name</h2>
+    <h2 class="profile__company"></h2>
 
-    <h3 class="profile__location">Country, City</h3>
+    <h3 class="profile__location"></h3>
 
-    <p class="profile__skill">Skill</p>
+    <p class="profile__skill"></p>
   </div>`;
 
+  // Fill the
   gridItem.querySelector('.profile__company').innerText = profile.company;
   gridItem.querySelector('.profile__location').innerText = `${profile.country}, ${profile.city}`;
   gridItem.querySelector('.profile__skill').innerText = profile.skill;
@@ -30,8 +32,14 @@ function createProfileElement(profile) {
   return gridItem;
 }
 
-const yahoo = createProfileElement({ company: 'Yahoo' });
+// Clear the grid that we are about to fill
+grid.innerHTML = '';
 
-// Add the gridItem for Yahoo to the end of the "grid" element
-grid.appendChild(yahoo);
-// document.body.querySelector('.profile__company').innerText = 'THIS IS THE FIRST ONE!!!';
+// for (let i = 0; i < companyList.length; i++) {
+//   const company = companyList[i];
+companyList.forEach((company) => {
+  const profileElement = createProfileElement(company);
+
+  // Add the profileElement to the end of the "grid" element
+  grid.appendChild(profileElement);
+});
